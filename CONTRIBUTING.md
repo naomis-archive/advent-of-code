@@ -65,3 +65,28 @@ If you aren't comfortable with the codebase, or would like to contribute in othe
 - Documentation Updates: You are always welcome to update our documentation (like this file!) if you see any typos or anything that can be clarified.
 - Feature Requests: If you have ideas for new features or improvements, feel free to open an issue!
 - Bug Reports: We rely on our users to help identify bugs - if you see something wrong, please let us know with an issue!
+
+## SOLUTION FORMAT
+
+Solutions for a challenge take the following format:
+
+```ts
+import fetch from "node-fetch";
+
+import { SolutionFunction } from "../../interfaces/SolutionFunction";
+
+export const challengeNameHere: SolutionFunction = async () => {
+  const answer = { partOne: "unsolved", partTwo: "unsolved" };
+  const input = await fetch("url here");
+
+  // All of the logic goes here.
+
+  return answer;
+};
+```
+
+Replacing `challengeNameHere` with the name of that challenge. The `answer` object is used to return the solution for each part of the challenge (challenges have two steps).
+
+When adding a solution, the file goes in `src/modules/<year>` (where `year` is the year the challenge was released), and the file is named `day<#>.ts`, where `<#>` is the date (i.e. `day1.ts`).
+
+Then, the exported solution function is imported into `src/utils/importSolutions.ts`, added to the appropriate year array, _and_ in the correct order. (Day 2 should come second, for example.)

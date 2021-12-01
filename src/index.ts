@@ -1,5 +1,6 @@
 import chalk from "chalk";
 import inquirer from "inquirer";
+
 import { solutionData } from "./utils/importSolutions";
 
 (async () => {

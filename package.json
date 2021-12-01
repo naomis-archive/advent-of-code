@@ -6,7 +6,9 @@
   "scripts": {
     "prebuild": "rm -rf ./prod",
     "build": "tsc",
-    "start": "node ./prod/index.js"
+    "lint": "eslint src --max-warnings 0",
+    "start": "node ./prod/index.js",
+    "test": "echo 'No tests yet'"
   },
   "author": "",
   "license": "ISC",

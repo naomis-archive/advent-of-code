@@ -30,7 +30,11 @@ import { solutionData } from "./utils/importSolutions";
 
   const solutionToRun = solutionData[year][Number(day) - 1];
 
+  console.time("runtime");
+
   const answer = await solutionToRun();
+
+  console.timeEnd("runtime");
 
   console.log(
     `The solution for day ${chalk.cyan(day)} of ${chalk.magenta(year)} is:`

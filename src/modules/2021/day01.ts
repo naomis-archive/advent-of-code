@@ -1,9 +1,9 @@
 import { SolutionFunction } from "../../interfaces/SolutionFunction";
 import { getPuzzleInput } from "../../utils/getPuzzleInput";
 
-export const sonarSweep: SolutionFunction = async () => {
+export const sonarSweep: SolutionFunction = async (mockData) => {
   const answer = { partOne: "unsolved", partTwo: "unsolved" };
-  const input = await getPuzzleInput("2021", "01");
+  const input = mockData || (await getPuzzleInput("2021", "01"));
   // This is a list of numbers so we need to convert them.
   const parsed = input.split("\n").map((el) => parseInt(el, 10));
 

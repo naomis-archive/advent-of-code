@@ -16,6 +16,6 @@ suite("2021 Solutions", () => {
 263`;
     const expected = { partOne: "7", partTwo: "5" };
     const actual = await sonarSweep(data);
-    assert.deepEqual(actual, expected);
+    assert.deepEqual(actual, expected, "Day 01 does not pass the mock data.");
   });
 });

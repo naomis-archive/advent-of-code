@@ -71,13 +71,12 @@ If you aren't comfortable with the codebase, or would like to contribute in othe
 Solutions for a challenge take the following format:
 
 ```ts
-import fetch from "node-fetch";
-
 import { SolutionFunction } from "../../interfaces/SolutionFunction";
+import { getPuzzleInput } from "../../utils/getPuzzleInput";
 
-export const challengeNameHere: SolutionFunction = async () => {
+export const challengeNameHere: SolutionFunction = async (mockData) => {
   const answer = { partOne: "unsolved", partTwo: "unsolved" };
-  const input = await fetch("url here");
+  const input = mockData || getPuzzleInput("year", "day");
 
   // All of the logic goes here.
 
@@ -90,3 +89,20 @@ Replacing `challengeNameHere` with the name of that challenge. The `answer` obje
 When adding a solution, the file goes in `src/modules/<year>` (where `year` is the year the challenge was released), and the file is named `day<#>.ts`, where `<#>` is the date (i.e. `day1.ts`).
 
 Then, the exported solution function is imported into `src/utils/importSolutions.ts`, added to the appropriate year array, _and_ in the correct order. (Day 2 should come second, for example.)
+
+## TEST FORMAT
+
+All solutions should come with tests against the provided mock data. The tests take the following format:
+
+```ts
+suite("day##", async () => {
+  // MUST DEDENT HERE - otherwise may cause issues when parsing.
+  const data = `Your
+mock
+data
+here`;
+  const expected = { partOne: "expected answer", partTwo: "expected answer" };
+  const actual = await challengeNameHere(data);
+  assert.deepEqual(actual, expected, "DayXX does not pass the mock data.");
+});
+```

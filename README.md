@@ -1,12 +1,10 @@
-# Project Name
+# Advent of Code
 
-Project Description
+This repository contains all of my [Advent of Code](https://adventofcode.com) solutions. These solutions are wrapped in a helpful CLI Wizard so you can run the solution you want to see.
 
 ## Live Version
 
-This page is not yet deployed.
-
-<!--This page is currently deployed. [View the live website.]()-->
+This is not a deployable tool, as it runs within your terminal.
 
 ## Feedback and Bugs
 

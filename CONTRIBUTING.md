@@ -96,6 +96,7 @@ All solutions should come with tests against the provided mock data. The tests t
 
 ```ts
 suite("day##", async () => {
+  console.time("YYYY Day ##");
   // MUST DEDENT HERE - otherwise may cause issues when parsing.
   const data = `Your
 mock
@@ -104,5 +105,6 @@ here`;
   const expected = { partOne: "expected answer", partTwo: "expected answer" };
   const actual = await challengeNameHere(data);
   assert.deepEqual(actual, expected, "DayXX does not pass the mock data.");
+  console.timeEnd("YYYY Day ##");
 });
 ```

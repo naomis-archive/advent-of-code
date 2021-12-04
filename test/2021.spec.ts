@@ -7,6 +7,7 @@ import { giantSquid } from "../src/modules/2021/day04";
 
 suite("2021 Solutions", () => {
   test("Day 01", async () => {
+    console.time("2021 Day 01");
     const data = `199
 200
 208
@@ -20,9 +21,11 @@ suite("2021 Solutions", () => {
     const expected = { partOne: "7", partTwo: "5" };
     const actual = await sonarSweep(data);
     assert.deepEqual(actual, expected, "Day 01 does not pass the mock data.");
+    console.timeEnd("2021 Day 01");
   });
 
   test("Day 02", async () => {
+    console.time("2021 Day 02");
     const data = `forward 5
 down 5
 forward 8
@@ -32,9 +35,11 @@ forward 2`;
     const expected = { partOne: "150", partTwo: "900" };
     const actual = await dive(data);
     assert.deepEqual(actual, expected, "Day 02 does not pass the mock data.");
+    console.timeEnd("2021 Day 02");
   });
 
   test("Day 03", async () => {
+    console.time("2021 Day 03");
     const data = `00100
 11110
 10110
@@ -50,9 +55,11 @@ forward 2`;
     const expected = { partOne: "198", partTwo: "230" };
     const actual = await binaryDiagonstic(data);
     assert.deepEqual(actual, expected, "Day 03 does not pass the mock data.");
+    console.timeEnd("2021 Day 03");
   });
 
   test("Day 04", async () => {
+    console.time("2021 Day 04");
     const data = `7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
 
 22 13 17 11  0
@@ -75,5 +82,6 @@ forward 2`;
     const expected = { partOne: "4512", partTwo: "1924" };
     const actual = await giantSquid(data);
     assert.deepEqual(actual, expected, "Day 04 does not pass the mock data.");
+    console.timeEnd("2021 Day 04");
   });
 });

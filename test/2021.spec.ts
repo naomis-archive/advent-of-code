@@ -4,6 +4,7 @@ import { sonarSweep } from "../src/modules/2021/day01";
 import { dive } from "../src/modules/2021/day02";
 import { binaryDiagonstic } from "../src/modules/2021/day03";
 import { giantSquid } from "../src/modules/2021/day04";
+import { hydrothermalVenture } from "../src/modules/2021/day05";
 
 suite("2021 Solutions", () => {
   test("Day 01", async () => {
@@ -83,5 +84,23 @@ forward 2`;
     const actual = await giantSquid(data);
     assert.deepEqual(actual, expected, "Day 04 does not pass the mock data.");
     console.timeEnd("2021 Day 04");
+  });
+
+  test("Day 05", async () => {
+    console.time("2021 Day 05");
+    const data = `0,9 -> 5,9
+8,0 -> 0,8
+9,4 -> 3,4
+2,2 -> 2,1
+7,0 -> 7,4
+6,4 -> 2,0
+0,9 -> 2,9
+3,4 -> 1,4
+0,0 -> 8,8
+5,5 -> 8,2`;
+    const expected = { partOne: "5", partTwo: "12" };
+    const actual = await hydrothermalVenture(data);
+    assert.deepEqual(actual, expected, "Day 05 does not pass the mock data.");
+    console.timeEnd("2021 Day 05");
   });
 });

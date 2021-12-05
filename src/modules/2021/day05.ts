@@ -17,32 +17,8 @@ const generateBoard = (input: number[][][]): number[][] => {
 
 const markLine = (
   coords: [[number, number], [number, number]],
-  board: number[][]
-) => {
-  const [[xOne, yOne], [xTwo, yTwo]] = coords;
-  if (xOne === xTwo && yOne === yTwo) {
-    board[yOne][xOne] = board[yOne][xOne] + 1;
-    return;
-  }
-  if (xOne === xTwo) {
-    const yMin = Math.min(yOne, yTwo);
-    const yMax = Math.max(yOne, yTwo);
-    for (let y = yMin; y <= yMax; y++) {
-      board[y][xOne] = board[y][xOne] + 1;
-    }
-  }
-  if (yOne === yTwo) {
-    const xMin = Math.min(xOne, xTwo);
-    const xMax = Math.max(xOne, xTwo);
-    for (let x = xMin; x <= xMax; x++) {
-      board[yOne][x] = board[yOne][x] + 1;
-    }
-  }
-};
-
-const markLineWithDiagonals = (
-  coords: [[number, number], [number, number]],
-  board: number[][]
+  board: number[][],
+  diagonals: boolean
 ) => {
   const [[xOne, yOne], [xTwo, yTwo]] = coords;
   if (xOne === xTwo && yOne === yTwo) {
@@ -50,7 +26,7 @@ const markLineWithDiagonals = (
     return;
   }
   // consider slopes of 45 degrees
-  if (Math.abs(yOne - yTwo) === Math.abs(xOne - xTwo)) {
+  if (Math.abs(yOne - yTwo) === Math.abs(xOne - xTwo) && diagonals) {
     const [xStart, yStart] = xOne < xTwo ? [xOne, yOne] : [xTwo, yTwo];
     // positive slopes have same sign
     if (yOne - yTwo === xOne - xTwo) {
@@ -72,7 +48,6 @@ const markLineWithDiagonals = (
     for (let y = yMin; y <= yMax; y++) {
       board[y][xOne] = board[y][xOne] + 1;
     }
-    return;
   }
   if (yOne === yTwo) {
     const xMin = Math.min(xOne, xTwo);
@@ -80,7 +55,6 @@ const markLineWithDiagonals = (
     for (let x = xMin; x <= xMax; x++) {
       board[yOne][x] = board[yOne][x] + 1;
     }
-    return;
   }
 };
 
@@ -104,7 +78,7 @@ export const hydrothermalVenture: SolutionFunction = async (mockData) => {
   const board = generateBoard(parsed);
 
   parsed.forEach((line) => {
-    markLine(line, board);
+    markLine(line, board, false);
   });
 
   answer.partOne = String(countTwos(board));
@@ -112,7 +86,7 @@ export const hydrothermalVenture: SolutionFunction = async (mockData) => {
   const cleanBoard = generateBoard(parsed);
 
   parsed.forEach((line) => {
-    markLineWithDiagonals(line, cleanBoard);
+    markLine(line, cleanBoard, true);
   });
 
   answer.partTwo = String(countTwos(cleanBoard));

@@ -76,7 +76,7 @@ import { getPuzzleInput } from "../../utils/getPuzzleInput";
 
 export const challengeNameHere: SolutionFunction = async (mockData) => {
   const answer = { partOne: "unsolved", partTwo: "unsolved" };
-  const input = mockData ||(await getPuzzleInput("year", "day"));
+  const input = mockData || (await getPuzzleInput("year", "day"));
 
   // All of the logic goes here.
 

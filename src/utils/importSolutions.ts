@@ -7,6 +7,7 @@ import { giantSquid } from "../modules/2021/day04";
 import { hydrothermalVenture } from "../modules/2021/day05";
 import { lanternfish } from "../modules/2021/day06";
 import { treacheryOfWhales } from "../modules/2021/day07";
+import { sevenSegmentSearch } from "../modules/2021/day08";
 
 export const solutionData: { [key: string]: SolutionFunction[] } = {
   "2020": [reportRepair],
@@ -18,5 +19,6 @@ export const solutionData: { [key: string]: SolutionFunction[] } = {
     hydrothermalVenture,
     lanternfish,
     treacheryOfWhales,
+    sevenSegmentSearch,
   ],
 };

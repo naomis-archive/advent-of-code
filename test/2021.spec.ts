@@ -8,6 +8,7 @@ import { hydrothermalVenture } from "../src/modules/2021/day05";
 import { lanternfish } from "../src/modules/2021/day06";
 import { treacheryOfWhales } from "../src/modules/2021/day07";
 import { sevenSegmentSearch } from "../src/modules/2021/day08";
+import { smokeBasin } from "../src/modules/2021/day09";
 
 suite("2021 Solutions", () => {
   test("Day 01", async () => {
@@ -141,5 +142,18 @@ gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce
     const actual = await sevenSegmentSearch(data);
     assert.deepEqual(actual, expected, "Day 08 does not pass the mock data.");
     console.timeEnd("2021 Day 08");
+  });
+
+  test("Day 09", async () => {
+    console.time("2021 Day 09");
+    const data = `2199943210
+3987894921
+9856789892
+8767896789
+9899965678`;
+    const expected = { partOne: "15", partTwo: "1134" };
+    const actual = await smokeBasin(data);
+    assert.deepEqual(actual, expected, "Day 09 does not pass the mock data.");
+    console.timeEnd("2021 Day 09");
   });
 });

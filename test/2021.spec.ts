@@ -9,6 +9,7 @@ import { lanternfish } from "../src/modules/2021/day06";
 import { treacheryOfWhales } from "../src/modules/2021/day07";
 import { sevenSegmentSearch } from "../src/modules/2021/day08";
 import { smokeBasin } from "../src/modules/2021/day09";
+import { syntaxScoring } from "../src/modules/2021/day10";
 
 suite("2021 Solutions", () => {
   test("Day 01", async () => {
@@ -155,5 +156,23 @@ gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce
     const actual = await smokeBasin(data);
     assert.deepEqual(actual, expected, "Day 09 does not pass the mock data.");
     console.timeEnd("2021 Day 09");
+  });
+
+  test("Day 10", async () => {
+    console.time("2021 Day 10");
+    const data = `[({(<(())[]>[[{[]{<()<>>
+[(()[<>])]({[<{<<[]>>(
+{([(<{}[<>[]}>{[]{[(<()>
+(((({<>}<{<{<>}{[]{[]{}
+[[<[([]))<([[{}[[()]]]
+[{[{({}]{}}([{[{{{}}([]
+{<[[]]>}<{[{[{[]{()[[[]
+[<(<(<(<{}))><([]([]()
+<{([([[(<>()){}]>(<<{{
+<{([{{}}[<[[[<>{}]]]>[]]`;
+    const expected = { partOne: "26397", partTwo: "288957" };
+    const actual = await syntaxScoring(data);
+    assert.deepEqual(actual, expected, "Day 10 does not pass the mock data.");
+    console.timeEnd("2021 Day 10");
   });
 });

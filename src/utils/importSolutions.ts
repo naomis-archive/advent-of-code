@@ -10,6 +10,7 @@ import { treacheryOfWhales } from "../modules/2021/day07";
 import { sevenSegmentSearch } from "../modules/2021/day08";
 import { smokeBasin } from "../modules/2021/day09";
 import { syntaxScoring } from "../modules/2021/day10";
+import { dumboOctopus } from "../modules/2021/day11";
 
 export const solutionData: { [key: string]: SolutionFunction[] } = {
   "2020": [reportRepair],
@@ -24,5 +25,6 @@ export const solutionData: { [key: string]: SolutionFunction[] } = {
     sevenSegmentSearch,
     smokeBasin,
     syntaxScoring,
+    dumboOctopus,
   ],
 };

@@ -10,6 +10,7 @@ import { treacheryOfWhales } from "../src/modules/2021/day07";
 import { sevenSegmentSearch } from "../src/modules/2021/day08";
 import { smokeBasin } from "../src/modules/2021/day09";
 import { syntaxScoring } from "../src/modules/2021/day10";
+import { dumboOctopus } from "../src/modules/2021/day11";
 
 suite("2021 Solutions", () => {
   test("Day 01", async () => {
@@ -174,5 +175,23 @@ gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce
     const actual = await syntaxScoring(data);
     assert.deepEqual(actual, expected, "Day 10 does not pass the mock data.");
     console.timeEnd("2021 Day 10");
+  });
+
+  test("Day 11", async () => {
+    console.time("2021 Day 11");
+    const data = `5483143223
+2745854711
+5264556173
+6141336146
+6357385478
+4167524645
+2176841721
+6882881134
+4846848554
+5283751526`;
+    const expected = { partOne: "1656", partTwo: "195" };
+    const actual = await dumboOctopus(data);
+    assert.deepEqual(actual, expected, "Day 11 does not pass the mock data.");
+    console.timeEnd("2021 Day 11");
   });
 });
